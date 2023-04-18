@@ -14,7 +14,6 @@ const Courses = (props) => {
     const [coursesList, setCoursesList] = useState(LIST);
 
     const searchHandler = (search) => {
-        console.log(search);
         if (search === "") {
             setCoursesList(LIST);
         } else {
@@ -36,7 +35,7 @@ const Courses = (props) => {
         <div className={classes["courses"]}>
             <section className={classes["courses__actions"]}>
                 <SearchBar onSearch={searchHandler} />
-                <Button>Create course</Button>
+                <Button onClick={props.onToggle}>Add new course</Button>
             </section>
 
             <ul className={classes["courses__list"]}>

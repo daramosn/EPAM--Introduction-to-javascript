@@ -7,6 +7,12 @@ import classes from "./CourseCard.module.scss";
 const CourseCard = (props) => {
     const { title, description, duration, created, authors } = props;
 
+    const formatDuration = (duration) => {
+        const hours = Math.floor(duration / 60);
+        const minutes = duration % 60;
+        return `${hours}:${minutes < 10 ? `0${minutes}` : minutes} hours`;
+    };
+
     return (
         <li className={classes["course"]}>
             <div className={classes["course__description"]}>
@@ -25,11 +31,11 @@ const CourseCard = (props) => {
                 </p>
                 <p className={classes["course__details-item"]}>
                     <span className={classes["course--bold"]}>Duration: </span>
-                    {duration}
+                    {formatDuration(duration)}
                 </p>
                 <p className={classes["course__details-item"]}>
                     <span className={classes["course--bold"]}>Created: </span>
-                    {created}
+                    {created.replaceAll("/", ".")}
                 </p>
 
                 <Button className={classes["course__button"]}>

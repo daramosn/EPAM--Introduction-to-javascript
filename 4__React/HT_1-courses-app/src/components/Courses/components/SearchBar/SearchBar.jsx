@@ -15,6 +15,10 @@ const SearchBar = (props) => {
 
     const inputChangeHandler = (event) => {
         setEnteredValue(event.target.value);
+
+        if (event.target.value === "") {
+            props.onSearch(""); // Reset search result when the searchbar is empty
+        }
     };
 
     return (
