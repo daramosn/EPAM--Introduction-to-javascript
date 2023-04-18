@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.0000" tests="12" failures="0">
+  <testsuite name="Root Suite" timestamp="2023-03-07T00:23:38" tests="0" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="backToFront" timestamp="2023-03-07T00:23:38" tests="5" file="C:\Users\diegor\Documents\WebDevelopment\EPAM-Javascript-v2\7.1.datatypes\test\index.js" time="0.0000" failures="0">
+    <testcase name="backToFront should return asdasdasd for given input (asd, 3)" time="0.0000" classname="should return asdasdasd for given input (asd, 3)">
+    </testcase>
+    <testcase name="backToFront should return ohelloo for given input (hello, 1)" time="0.0000" classname="should return ohelloo for given input (hello, 1)">
+    </testcase>
+    <testcase name="backToFront should return sttestst for given input (test, 2)" time="0.0000" classname="should return sttestst for given input (test, 2)">
+    </testcase>
+    <testcase name="backToFront should return world for given input (world, 5)" time="0.0000" classname="should return world for given input (world, 5)">
+    </testcase>
+    <testcase name="backToFront should return test for given input (test, 100)" time="0.0000" classname="should return test for given input (test, 100)">
+    </testcase>
+  </testsuite>
+  <testsuite name="nearest" timestamp="2023-03-07T00:23:38" tests="4" file="C:\Users\diegor\Documents\WebDevelopment\EPAM-Javascript-v2\7.1.datatypes\test\index.js" time="0.0000" failures="0">
+    <testcase name="nearest should return 10 for given input (20, 10, 50)" time="0.0000" classname="should return 10 for given input (20, 10, 50)">
+    </testcase>
+    <testcase name="nearest should return 50 for given input (100, 200, 50)" time="0.0000" classname="should return 50 for given input (100, 200, 50)">
+    </testcase>
+    <testcase name="nearest should return 40 for given input (44, 40, 60)" time="0.0000" classname="should return 40 for given input (44, 40, 60)">
+    </testcase>
+    <testcase name="nearest should return 100 for given input (100, 100, 101)" time="0.0000" classname="should return 100 for given input (100, 100, 101)">
+    </testcase>
+  </testsuite>
+  <testsuite name="removeDuplicate" timestamp="2023-03-07T00:23:38" tests="3" file="C:\Users\diegor\Documents\WebDevelopment\EPAM-Javascript-v2\7.1.datatypes\test\index.js" time="0.0000" failures="0">
+    <testcase name="removeDuplicate should return [1,2,3] for given input [1,1,1,2,3,3]" time="0.0000" classname="should return [1,2,3] for given input [1,1,1,2,3,3]">
+    </testcase>
+    <testcase name="removeDuplicate should return [&quot;a&quot;, &quot;b&quot;] for given input [&quot;a&quot;, &quot;b&quot;, &quot;b&quot;, &quot;b&quot;]" time="0.0000" classname="should return [&quot;a&quot;, &quot;b&quot;] for given input [&quot;a&quot;, &quot;b&quot;, &quot;b&quot;, &quot;b&quot;]">
+    </testcase>
+    <testcase name="removeDuplicate should return [44, &quot;a&quot;, 11] for given input [44, &quot;a&quot;, 11, 44, &quot;a&quot;, 11, 44, &quot;a&quot;, 11]" time="0.0000" classname="should return [44, &quot;a&quot;, 11] for given input [44, &quot;a&quot;, 11, 44, &quot;a&quot;, 11, 44, &quot;a&quot;, 11]">
+    </testcase>
+  </testsuite>
+</testsuites>

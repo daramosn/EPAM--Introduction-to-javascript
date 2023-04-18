@@ -1,0 +1,23 @@
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+$color-primary: red;
+$color-secondary: pink;
+
+header {
+    nav {
+        background-color: $color-primary;
+        color: $color-secondary;
+    }
+}

@@ -1,0 +1,12 @@
+.custom-input {
+    display: grid;
+
+    &__label {
+        font-size: 13px;
+    }
+
+    &__input {
+        border: 1px solid rgb(190, 129, 16);
+        border-radius: 5px;
+    }
+}

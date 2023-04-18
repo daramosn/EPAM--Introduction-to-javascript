@@ -1,0 +1,24 @@
+//fonts
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Source+Sans+Pro&display=swap');
+
+$font-titles: 'Oswald', sans-serif;
+$font-secondary: 'Source Sans Pro', sans-serif;
+
+$font-sm: 16px;
+$font-md: 24px;
+$font-lg: 48px;
+
+
+//colors
+$color-dark-gray: #464547;
+$color-light-gray: #666666;
+$color-white-40: rgba(255, 255, 255, 0.4);
+$color-white-70: rgba(255, 255, 255, 0.7);
+$color-green: #55C2D8;
+
+
+
+//breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;

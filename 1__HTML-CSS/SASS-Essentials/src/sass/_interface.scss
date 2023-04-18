@@ -1,0 +1,20 @@
+%button-app {
+    color: white;
+    background-color: $color-green;
+    border: 1px solid $color-green;
+}
+
+.logo--mid {
+    height: 96px;
+    width: 96px;
+}
+
+.logo--small {
+    height: 20px;
+    width: 20px;
+}
+
+.link--no-decoration {
+    text-decoration: none;
+    color: inherit;
+}

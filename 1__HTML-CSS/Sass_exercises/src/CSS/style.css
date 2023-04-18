@@ -1,0 +1,20 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+header nav {
+  background-color: red;
+  color: pink;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,27 @@
+header {
+    height: 822px;
+    background: url(../assets/Desktop_Backgrounds_1920x1200_6\ 3.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    color: white;
+    display: grid;
+    place-content: center;
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 48px;
+}
+
+header h3 {
+    font-family: sans-serif;
+    opacity: 70%;
+    font-size: 24px;
+}
+
+header img {
+    margin-inline: auto;
+}

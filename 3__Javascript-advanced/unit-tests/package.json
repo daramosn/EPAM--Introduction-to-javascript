@@ -1,0 +1,32 @@
+{
+  "name": "task-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:junit": "cross-env MOCHA_FILE=junit.xml mocha test --reporter mocha-junit-reporter",
+    "test:xunit": "cross-env MOCHA_FILE=xunit.xml mocha test --reporter mocha-xunit-reporter",
+    "test": "npm run test:junit",
+    "build": "echo \"Dummy build script\"",
+    "test:local": "mocha",
+    "coverage": "nyc npm run test:local"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.com:javascript-mentoring/javascript-basics-private/task-template.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "coverage": "^0.4.1",
+    "cross-env": "7.0.3",
+    "mocha-junit-reporter": "1.23.3",
+    "mocha-xunit-reporter": "2.1.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "nyc": "^15.1.0",
+    "sinon": "^15.0.3"
+  }
+}

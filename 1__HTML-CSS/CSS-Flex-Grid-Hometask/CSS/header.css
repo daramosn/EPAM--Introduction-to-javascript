@@ -1,0 +1,101 @@
+.landing-page {
+    height: 822px;
+    background: url(../assets/Desktop_Backgrounds_1920x1200_6\ 3.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    padding: 1rem 10rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+
+    align-items: center;
+    text-transform: uppercase;
+}
+
+nav>a {
+    grid-column: 1/2;
+    text-align: center;
+    letter-spacing: 0.2rem;
+}
+
+nav ul {
+    letter-spacing: 0.1rem;
+    grid-column: 2/3;
+    display: flex;
+    justify-content: space-around;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.hamburger-button {
+    padding-inline: auto;
+    grid-column: 3/4;
+    display: none;
+}
+
+.bar {
+    margin-bottom: 0.3rem;
+    margin-left: auto;
+    width: 30px;
+    height: 3px;
+    background-color: white;
+}
+
+nav a,
+nav li {
+    text-decoration: none;
+    list-style-type: none;
+    color: white;
+}
+
+nav li:hover {
+    text-decoration: underline;
+}
+
+header {
+    flex-grow: 1;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    justify-content: center;
+}
+
+header h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 48px;
+}
+
+header h3 {
+    font-family: sans-serif;
+    opacity: 70%;
+    font-size: 24px;
+}
+
+header img {
+    margin-inline: auto;
+}
+
+@media (max-width: 768px) {
+    .landing-page {
+        padding-inline: 1rem;
+    }
+
+    nav {
+        padding-inline: 1rem;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    .hamburger-button {
+        display: block;
+    }
+}

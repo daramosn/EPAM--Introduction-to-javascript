@@ -1,0 +1,13 @@
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: $font-secondary;
+}
+
+body {
+    margin: 0;
+}

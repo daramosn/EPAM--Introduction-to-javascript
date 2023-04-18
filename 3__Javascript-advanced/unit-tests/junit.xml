@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.0040" tests="10" failures="0">
+  <testsuite name="Root Suite" timestamp="2023-04-10T03:25:58" tests="0" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="Email validator testing" timestamp="2023-04-10T03:25:58" tests="0" file="C:\Users\diegor\Documents\WebDevelopment\EPAM-Javascript-v2\unit-tests\test\emailValidator.test.js" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="Validation asyncValidate" timestamp="2023-04-10T03:25:58" tests="4" file="C:\Users\diegor\Documents\WebDevelopment\EPAM-Javascript-v2\unit-tests\test\emailValidator.test.js" time="0.0020" failures="0">
+    <testcase name="Email validator testing Validation asyncValidate Should return true for test@example.com" time="0.0010" classname="Should return true for test@example.com">
+    </testcase>
+    <testcase name="Email validator testing Validation asyncValidate Should return true for email@example.org" time="0.0000" classname="Should return true for email@example.org">
+    </testcase>
+    <testcase name="Email validator testing Validation asyncValidate Should return false for test@example.con" time="0.0010" classname="Should return false for test@example.con">
+    </testcase>
+    <testcase name="Email validator testing Validation asyncValidate Should return false for an empty string" time="0.0000" classname="Should return false for an empty string">
+    </testcase>
+  </testsuite>
+  <testsuite name="Validation with throw" timestamp="2023-04-10T03:25:58" tests="4" file="C:\Users\diegor\Documents\WebDevelopment\EPAM-Javascript-v2\unit-tests\test\emailValidator.test.js" time="0.0010" failures="0">
+    <testcase name="Email validator testing Validation with throw Should return true for test@example.com" time="0.0000" classname="Should return true for test@example.com">
+    </testcase>
+    <testcase name="Email validator testing Validation with throw Should return true for email@example.org" time="0.0000" classname="Should return true for email@example.org">
+    </testcase>
+    <testcase name="Email validator testing Validation with throw Should throw error for test@example.con" time="0.0010" classname="Should throw error for test@example.con">
+    </testcase>
+    <testcase name="Email validator testing Validation with throw Should throw error for an empty string" time="0.0000" classname="Should throw error for an empty string">
+    </testcase>
+  </testsuite>
+  <testsuite name="Validation log" timestamp="2023-04-10T03:25:58" tests="2" file="C:\Users\diegor\Documents\WebDevelopment\EPAM-Javascript-v2\unit-tests\test\emailValidator.test.js" time="0.0010" failures="0">
+    <testcase name="Email validator testing Validation log Should return true for test@example.com" time="0.0010" classname="Should return true for test@example.com">
+    </testcase>
+    <testcase name="Email validator testing Validation log Should throw error for test@example.email" time="0.0000" classname="Should throw error for test@example.email">
+    </testcase>
+  </testsuite>
+</testsuites>

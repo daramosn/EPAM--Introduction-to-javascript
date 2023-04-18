@@ -1,0 +1,117 @@
+.description-section {
+    min-height: 700px;
+    padding: 6rem 10rem;
+    background-color: #EEEEEE;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+
+    @include breakpoint($breakpoint-md) {
+        padding-inline: 2rem;
+    }
+
+    &__title {
+        font-family: $font-titles;
+        margin: 0;
+        color: $color-dark-gray;
+        font-size: $font-lg;
+    }
+
+    &__subtitle {
+        color: $color-light-gray;
+        font-size: $font-md;
+    }
+
+    &__paragraphs {
+        color: $color-light-gray;
+        font-size: $font-sm;
+        text-align: justify;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 7rem;
+
+        @include breakpoint($breakpoint-md) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__button {
+        @extend %button-app;
+        padding: 0.6rem 2rem;
+        font-family: $font-titles;
+        font-weight: 100;
+        border-radius: 20px;
+
+        &--read-more {
+            margin-inline: auto;
+
+            transform-origin: left;
+            transition-duration: 500ms;
+
+            &:hover {
+                transform: rotate(12deg);
+            }
+        }
+
+
+    }
+}
+
+
+.video-section {
+    height: 822px;
+    background: url(../assets/background_2.png) no-repeat center center;
+    background-size: cover;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr;
+
+    &__overlay {
+        grid-column: 1/2;
+        grid-row: 1/2;
+        background-color: #8C4F2A4D;
+        z-index: 1;
+    }
+
+    &__content {
+        grid-column: 1/2;
+        grid-row: 1/2;
+        margin-inline: auto;
+        max-width: 400px;
+        z-index: 2 !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+    }
+
+    &__play-button {
+        @extend %button-app;
+        margin-inline: auto;
+        font-size: 67px;
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+
+        transition-duration: 500ms;
+
+        &:hover {
+            color: $color-green;
+            transform: scale(0.9);
+            background-color: white;
+        }
+    }
+
+    &__title {
+        font-family: $font-titles;
+        margin: 0;
+        font-size: $font-lg;
+    }
+
+    &__paragraph {
+        font-size: $font-md;
+    }
+}

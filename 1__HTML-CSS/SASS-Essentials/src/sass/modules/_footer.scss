@@ -1,0 +1,43 @@
+.footer {
+    min-height: 199px;
+    padding: 40px 11rem 78px;
+    color: $color-white-40;
+    background-color: $color-dark-gray;
+    display: flex;
+    font-size: $font-sm;
+
+    @include breakpoint($breakpoint-md) {
+        display: grid;
+        text-align: center;
+        row-gap: 1rem;
+        padding: 1rem auto 3rem;
+    }
+
+    &__column {
+
+        p {
+            margin: 0;
+        }
+
+        &--left {
+            color: white;
+            flex: 3 1 auto;
+            font-size: 22px;
+            letter-spacing: 0.3rem;
+        }
+
+        &--center {
+            flex: 4 1 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            row-gap: 1rem;
+        }
+
+        &--right {
+            flex: 3 1 auto;
+            align-self: flex-end;
+            text-align: center;
+        }
+    }
+}

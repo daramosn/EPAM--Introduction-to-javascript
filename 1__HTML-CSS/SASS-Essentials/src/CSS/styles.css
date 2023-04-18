@@ -1,0 +1,313 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Source+Sans+Pro&display=swap");
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.video-section__play-button, .description-section__button {
+  color: white;
+  background-color: #55C2D8;
+  border: 1px solid #55C2D8;
+}
+
+.logo--mid {
+  height: 96px;
+  width: 96px;
+}
+
+.logo--small {
+  height: 20px;
+  width: 20px;
+}
+
+.link--no-decoration {
+  text-decoration: none;
+  color: inherit;
+}
+
+@keyframes lightFade {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+@keyframes lightMove {
+  to {
+    transform: scale(1.2);
+  }
+}
+.main-section {
+  height: 822px;
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+}
+.main-section > * {
+  grid-row: 1/2;
+  grid-column: 1/2;
+}
+.main-section__background {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.main-section__background--animation-2 {
+  animation: lightMove 5000ms ease-in-out infinite alternate both;
+}
+@media (max-width: 768px) {
+  .main-section__background--animation-2 {
+    animation: lightFade 3000ms ease-in-out infinite alternate both;
+  }
+}
+.main-section__background--animation-3 {
+  animation: lightFade 2000ms ease-in-out 3000ms infinite alternate both;
+}
+@media (max-width: 768px) {
+  .main-section__background--animation-3 {
+    animation: lightMove 4000ms ease-in-out 3000ms infinite alternate both, lightFade 6000ms ease-in-out infinite alternate both;
+  }
+}
+.main-section__content {
+  height: 822px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+@media (max-width: 768px) {
+  .main-section__content {
+    padding-inline: 1rem;
+  }
+}
+
+.navbar {
+  padding: 1rem 10rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  text-transform: uppercase;
+}
+@media (max-width: 768px) {
+  .navbar {
+    padding-inline: 1rem;
+  }
+}
+.navbar__brand {
+  grid-column: 1/2;
+  text-align: center;
+  letter-spacing: 0.2rem;
+}
+.navbar__list {
+  letter-spacing: 0.1rem;
+  grid-column: 2/4;
+  display: flex;
+  justify-content: space-around;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+@media (max-width: 768px) {
+  .navbar__list {
+    display: none;
+  }
+}
+.navbar__list-item--nobullet {
+  list-style-type: none;
+  color: white;
+}
+.navbar__list-item--nobullet:hover {
+  text-decoration: underline;
+}
+
+.hamburger-btn {
+  padding-inline: auto;
+  grid-column: 4/5;
+  display: none;
+}
+@media (max-width: 768px) {
+  .hamburger-btn {
+    display: block;
+  }
+}
+.hamburger-btn__bar {
+  margin: 0.3rem;
+  margin-left: auto;
+  gap: 0.3rem;
+  width: 30px;
+  height: 3px;
+  background-color: white;
+}
+
+.main-section__section {
+  flex-grow: 1;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  justify-content: center;
+}
+.main-section__section h1 {
+  font-family: "Oswald", sans-serif;
+  font-size: 48px;
+}
+.main-section__section h3 {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 24px;
+}
+.main-section__section img {
+  margin-inline: auto;
+  transition-duration: 700ms;
+}
+.main-section__section img:hover {
+  transform: rotateY(180deg) scale(1.2);
+}
+
+.description-section {
+  min-height: 700px;
+  padding: 6rem 10rem;
+  background-color: #EEEEEE;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .description-section {
+    padding-inline: 2rem;
+  }
+}
+.description-section__title {
+  font-family: "Oswald", sans-serif;
+  margin: 0;
+  color: #464547;
+  font-size: 48px;
+}
+.description-section__subtitle {
+  color: #666666;
+  font-size: 24px;
+}
+.description-section__paragraphs {
+  color: #666666;
+  font-size: 16px;
+  text-align: justify;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 7rem;
+}
+@media (max-width: 768px) {
+  .description-section__paragraphs {
+    grid-template-columns: 1fr;
+  }
+}
+.description-section__button {
+  padding: 0.6rem 2rem;
+  font-family: "Oswald", sans-serif;
+  font-weight: 100;
+  border-radius: 20px;
+}
+.description-section__button--read-more {
+  margin-inline: auto;
+  transform-origin: left;
+  transition-duration: 500ms;
+}
+.description-section__button--read-more:hover {
+  transform: rotate(12deg);
+}
+
+.video-section {
+  height: 822px;
+  background: url(../assets/background_2.png) no-repeat center center;
+  background-size: cover;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.video-section__overlay {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  background-color: rgba(140, 79, 42, 0.3019607843);
+  z-index: 1;
+}
+.video-section__content {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  margin-inline: auto;
+  max-width: 400px;
+  z-index: 2 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+.video-section__play-button {
+  margin-inline: auto;
+  font-size: 67px;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  transition-duration: 500ms;
+}
+.video-section__play-button:hover {
+  color: #55C2D8;
+  transform: scale(0.9);
+  background-color: white;
+}
+.video-section__title {
+  font-family: "Oswald", sans-serif;
+  margin: 0;
+  font-size: 48px;
+}
+.video-section__paragraph {
+  font-size: 24px;
+}
+
+.footer {
+  min-height: 199px;
+  padding: 40px 11rem 78px;
+  color: rgba(255, 255, 255, 0.4);
+  background-color: #464547;
+  display: flex;
+  font-size: 16px;
+}
+@media (max-width: 768px) {
+  .footer {
+    display: grid;
+    text-align: center;
+    row-gap: 1rem;
+    padding: 1rem auto 3rem;
+  }
+}
+.footer__column p {
+  margin: 0;
+}
+.footer__column--left {
+  color: white;
+  flex: 3 1 auto;
+  font-size: 22px;
+  letter-spacing: 0.3rem;
+}
+.footer__column--center {
+  flex: 4 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 1rem;
+}
+.footer__column--right {
+  flex: 3 1 auto;
+  align-self: flex-end;
+  text-align: center;
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,15 @@
+@keyframes lightFade {
+    from {
+        opacity: 0%;
+    }
+
+    to {
+        opacity: 100%;
+    }
+}
+
+@keyframes lightMove {
+    to {
+        transform: scale(1.2);
+    }
+}
