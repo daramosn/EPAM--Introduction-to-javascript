@@ -3,15 +3,10 @@ import React from "react";
 import Button from "../../../../common/Button";
 
 import classes from "./CourseCard.module.scss";
+import { courseDuration } from "../../../../helpers/courseDuration";
 
 const CourseCard = (props) => {
     const { title, description, duration, created, authors } = props;
-
-    const formatDuration = (duration) => {
-        const hours = Math.floor(duration / 60);
-        const minutes = duration % 60;
-        return `${hours}:${minutes < 10 ? `0${minutes}` : minutes} hours`;
-    };
 
     return (
         <li className={classes["course"]}>
@@ -31,7 +26,7 @@ const CourseCard = (props) => {
                 </p>
                 <p className={classes["course__details-item"]}>
                     <span className={classes["course--bold"]}>Duration: </span>
-                    {formatDuration(duration)}
+                    {courseDuration(duration)}
                 </p>
                 <p className={classes["course__details-item"]}>
                     <span className={classes["course--bold"]}>Created: </span>

@@ -20,6 +20,7 @@ const Input = (props) => {
                 onChange={props.onChange}
                 id={props.label}
                 placeholder={props.placeholder}
+                ref={props.inputRef}
             />
         </div>
     );
