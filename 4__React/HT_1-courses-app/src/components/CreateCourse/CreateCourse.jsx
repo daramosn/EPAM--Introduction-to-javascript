@@ -25,7 +25,6 @@ const CreateCourse = (props) => {
     const submitHandler = (event) => {
         event.preventDefault();
         if (textareaRef.current.value.length < 2) {
-            // alert("Text length should be at least 2 characters!");
             return setModal(true);
         }
         if (
@@ -34,7 +33,6 @@ const CreateCourse = (props) => {
             durationTime === 0 ||
             courseAuthorList.length === 0
         ) {
-            // alert("You can't create the course! Please fill correctly the form");
             return setModal(true);
         }
         const newCourse = {
