@@ -1,28 +1,59 @@
-import React, { useRef, useState } from "react";
+import React, { useState, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import Input from "../../common/Input";
 import Button from "../../common/Button";
-
-import { mockedAuthorsList as AUTHORS } from "../../constants";
+import Modal from "../../UI/Modal";
+import { courseDuration } from "../../helpers/courseDuration";
+import { getCurrentDate } from "../../helpers/getCurrentDate";
+import {
+    mockedAuthorsList as AUTHORS,
+    mockedCoursesList as COURSES,
+} from "../../constants";
 
 import classes from "./CreateCourse.module.scss";
-import { courseDuration } from "../../helpers/courseDuration";
 
 const CreateCourse = (props) => {
-    const [durationTime, setDurationTime] = useState("00:00 hours");
+    const titleRef = useRef("");
+    const textareaRef = useRef("");
+    const [durationTime, setDurationTime] = useState(0);
     const [addAuthor, setAddAuthor] = useState("");
     const [authorList, setAuthorList] = useState(AUTHORS);
+    const [courseAuthorList, setCourseAuthorList] = useState([]);
+    const [modal, setModal] = useState(false);
 
     const submitHandler = (event) => {
         event.preventDefault();
+        if (textareaRef.current.value.length < 2) {
+            // alert("Text length should be at least 2 characters!");
+            return setModal(true);
+        }
+        if (
+            titleRef.current.value.length < 2 ||
+            textareaRef.current.value.length < 2 ||
+            durationTime === 0 ||
+            courseAuthorList.length === 0
+        ) {
+            // alert("You can't create the course! Please fill correctly the form");
+            return setModal(true);
+        }
+        const newCourse = {
+            id: uuidv4(),
+            title: titleRef.current.value,
+            description: textareaRef.current.value,
+            creationDate: getCurrentDate(),
+            duration: durationTime,
+            authors: courseAuthorList.map((author) => author.id),
+        };
+        COURSES.push(newCourse);
+        props.onToggle();
     };
 
     const inputDurationHandler = (event) => {
         if (event.target.value === "") {
-            return setDurationTime("00:00 hours");
+            return setDurationTime(0);
         } else {
-            setDurationTime(courseDuration(event.target.value));
+            setDurationTime(parseInt(event.target.value));
         }
     };
 
@@ -33,81 +64,148 @@ const CreateCourse = (props) => {
     const createAuthorHandler = () => {
         if (addAuthor.length > 1) {
             const newAuthor = { id: uuidv4(), name: addAuthor };
-            setAuthorList((prevAuthorList) => [...prevAuthorList, newAuthor]);
+            AUTHORS.push(newAuthor);
             setAddAuthor("");
         }
         return;
     };
 
-    return (
-        <form onSubmit={submitHandler} className={classes["new-course"]}>
-            <div className={classes["new-course__actions"]}>
-                <Input label={"Title"} />
-                <Button type={"submit"}>Create course</Button>
-                <textarea
-                    className={classes["new-course__actions-textarea"]}
-                    name="actions-textarea"
-                    id="actions-textarea"
-                    cols="30"
-                    rows="10"
-                ></textarea>
-            </div>
+    const addAuthorListHandler = (currentAuthor) => {
+        setCourseAuthorList((prevCourseAuthorList) => [
+            currentAuthor,
+            ...prevCourseAuthorList,
+        ]);
+        setAuthorList((prevAuthorList) =>
+            prevAuthorList.filter((author) => author.id !== currentAuthor.id)
+        );
+    };
+    const deleteAuthorListHandler = (currentAuthor) => {
+        setCourseAuthorList((prevCourseAuthorList) =>
+            prevCourseAuthorList.filter(
+                (author) => author.id !== currentAuthor.id
+            )
+        );
+        setAuthorList((prevAuthorList) => [currentAuthor, ...prevAuthorList]);
+    };
 
-            <div className={classes["new-course__details"]}>
-                <div className={classes["new-course__details--one-column"]}>
-                    <h4 className={classes["new-course--title"]}>Add author</h4>
+    const modalToggleHandler = () => {
+        setModal((prevModal) => !prevModal);
+    };
+
+    return (
+        <>
+            {modal && (
+                <Modal onCloseModal={modalToggleHandler}>
+                    <h3>Please fill correctly the form!</h3>
+                </Modal>
+            )}
+            <form onSubmit={submitHandler} className={classes["new-course"]}>
+                <div className={classes["new-course__actions"]}>
                     <Input
-                        label={"Author name"}
-                        placeholder={"Enter author name..."}
-                        value={addAuthor}
-                        onChange={addAuthorHandler}
+                        label={"Title"}
+                        ref={titleRef}
+                        placeholder={"Enter title..."}
+                        minCharacters={2}
                     />
-                    <Button
-                        onClick={createAuthorHandler}
-                        className={classes["new-course__button"]}
-                    >
-                        Create author
-                    </Button>
+                    <Button type={"submit"}>Create course</Button>
+                    <textarea
+                        className={classes["new-course__actions-textarea"]}
+                        name="actions-textarea"
+                        id="actions-textarea"
+                        cols="30"
+                        rows="10"
+                        placeholder={"Enter description..."}
+                        ref={textareaRef}
+                    ></textarea>
                 </div>
 
-                <div className={classes["new-course__details--one-column"]}>
-                    <h4 className={classes["new-course--title"]}>Authors</h4>
-                    <ul className={classes["new-course--no-padding"]}>
-                        {authorList.map((author) => (
+                <div className={classes["new-course__details"]}>
+                    <div className={classes["new-course__details--one-column"]}>
+                        <h4 className={classes["new-course--title"]}>
+                            Add author
+                        </h4>
+                        <Input
+                            label={"Author name"}
+                            placeholder={"Enter author name..."}
+                            value={addAuthor}
+                            onChange={addAuthorHandler}
+                            minCharacters={2}
+                        />
+                        <Button
+                            type={"button"}
+                            onClick={createAuthorHandler}
+                            className={classes["new-course__button"]}
+                        >
+                            Create author
+                        </Button>
+                    </div>
+
+                    <div className={classes["new-course__details--one-column"]}>
+                        <h4 className={classes["new-course--title"]}>
+                            Authors
+                        </h4>
+                        <ul className={classes["new-course--no-padding"]}>
+                            {authorList.map((author) => (
+                                <li
+                                    className={classes["new-course__list-item"]}
+                                    key={author.id}
+                                >
+                                    <span>{author.name}</span>
+                                    <Button
+                                        onClick={addAuthorListHandler.bind(
+                                            null,
+                                            author
+                                        )}
+                                    >
+                                        Add author
+                                    </Button>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div className={classes["new-course__details--one-column"]}>
+                        <h4 className={classes["new-course--title"]}>
+                            Duration
+                        </h4>
+                        <Input
+                            label={"Duration"}
+                            placeholder={"Enter duration in minutes..."}
+                            type={"number"}
+                            onChange={inputDurationHandler}
+                            minNumber={5}
+                        />
+                        <span>Duration: {courseDuration(durationTime)}</span>
+                    </div>
+
+                    <div className={classes["new-course__details--one-column"]}>
+                        <h4 className={classes["new-course--title"]}>
+                            Course authors
+                        </h4>
+                        <ul className={classes["new-course--no-padding"]}></ul>
+                        {courseAuthorList?.map((author) => (
                             <li
                                 className={classes["new-course__list-item"]}
                                 key={author.id}
                             >
                                 <span>{author.name}</span>
-                                <Button>Add author</Button>
+                                <Button
+                                    onClick={deleteAuthorListHandler.bind(
+                                        null,
+                                        author
+                                    )}
+                                >
+                                    Delete author
+                                </Button>
                             </li>
                         ))}
-                    </ul>
+                    </div>
+                    <Button type={"button"} onClick={props.onToggle}>
+                        Cancel
+                    </Button>
                 </div>
-
-                <div className={classes["new-course__details--one-column"]}>
-                    <h4 className={classes["new-course--title"]}>Duration</h4>
-                    <Input
-                        label={"Duration"}
-                        placeholder={"Enter duration in minutes..."}
-                        type={"number"}
-                        onChange={inputDurationHandler}
-                    />
-                    <span>Duration: {durationTime}</span>
-                </div>
-
-                <div className={classes["new-course__details--one-column"]}>
-                    <h4 className={classes["new-course--title"]}>
-                        Course authors
-                    </h4>
-                    <ul className={classes["new-course--no-padding"]}></ul>
-                    {/* Map authors added here */}
-                </div>
-                <Button type={"button"} onClick={props.onToggle}>
-                    Cancel
-                </Button>
-            </div>
-        </form>
+            </form>
+        </>
     );
 };
 

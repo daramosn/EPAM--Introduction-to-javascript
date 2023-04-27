@@ -2,8 +2,9 @@ import React from "react";
 
 import Button from "../../../../common/Button";
 
-import classes from "./CourseCard.module.scss";
 import { courseDuration } from "../../../../helpers/courseDuration";
+
+import classes from "./CourseCard.module.scss";
 
 const CourseCard = (props) => {
     const { title, description, duration, created, authors } = props;
