@@ -1,0 +1,12 @@
+.new-course {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 1rem;
+
+    &__details,
+    &__create-author,
+    &__actions {
+        grid-column: 1/3;
+    }
+}
